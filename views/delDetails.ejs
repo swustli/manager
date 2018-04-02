@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本表单</title>
+    <link rel="shortcut icon" href="/images/favicon.ico"> 
+    <link href="/stylesheets/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="/stylesheets/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="/stylesheets/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/stylesheets/animate.min.css" rel="stylesheet">
+    <link href="/stylesheets/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <form method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">学生姓名</label>
+
+                                <div class="col-sm-10">
+                                    <input type="hidden" name="id" value="<%= post.id %>">
+                                    <input type="text" name="student" class="form-control" value="<%= post.student %>">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">演奏曲目</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" name="track" class="form-control" value="<%= post.track %>">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">演奏形式</label>
+
+                                <div class="col-sm-10">
+                                    <select class="form-control m-b" name="cateId">
+                                        <option value="1" <%if(post.cateId == 1){%>selected<%}%>>管弦乐</option>
+                                        <option value="2" <%if(post.cateId == 2){%>selected<%}%>>交响乐</option>
+                                        <option value="3" <%if(post.cateId == 3){%>selected<%}%>>合唱</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">演奏场地</label>
+                                <div class="col-sm-10">
+                                    <div class="radio i-checks">
+                                        <label>
+                                            <input type="radio" value="1" name="siteId" <%if(post.siteId == 1){%>checked<%}%>> <i></i> A音乐厅</label>
+                                    </div>
+                                    <div class="radio i-checks">
+                                        <label>
+                                            <input type="radio" value="2" name="siteId" <%if(post.siteId == 2){%>checked<%}%>> <i></i>B音乐厅</label>
+                                    </div>
+                                    <div class="radio i-checks">
+                                        <label>
+                                            <input type="radio" value="3" name="siteId" <%if(post.siteId == 3){%>checked<%}%>> <i></i> C音乐厅</label>
+                                    </div>
+                                    <div class="radio i-checks">
+                                        <label>
+                                            <input type="radio" value="4" name="siteId" <%if(post.siteId == 4){%>checked<%}%>> <i></i> D音乐厅</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">时间：</label>
+                                <div class="col-sm-10">
+                                    <input name="time" class="form-control layer-date" placeholder="YYYY-MM-DD hh:mm:ss" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="<%= post.time %>">
+                                    <label class="laydate-icon"></label>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">确认删除</button>
+                                    <button class="btn btn-white" type="button" id="b">返回</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascripts/jquery.min.js?v=2.1.4"></script>
+    <script src="/javascripts/bootstrap.min.js?v=3.3.6"></script>
+    <script src="/javascripts/content.min.js?v=1.0.0"></script>
+    <script src="/javascripts/plugins/iCheck/icheck.min.js"></script>
+    <script src="/javascripts/plugins/layer/laydate/laydate.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".i-checks").iCheck({checkboxClass:"icheckbox_square-green",radioClass:"iradio_square-green"});
+
+            $("#b").click(function(){
+                history.go(-1);
+            });
+            $(".gohome").remove();
+        });
+    </script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+</body>
+
+
+<!--  /form_basic.html -->
+</html>
